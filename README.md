@@ -1,2 +1,2 @@
-# K-osmo
-코딩교구를 활용한 게임구현
+# coding_AiProjcet
+파이썬을 이용한 코딩 교구 제작
