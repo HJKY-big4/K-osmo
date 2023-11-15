@@ -1,4 +1,3 @@
-import tkinter
 import tkinter as tk
 from tkinter import messagebox
 import cv2
@@ -9,6 +8,7 @@ import keras
 import numpy as np
 from PIL import Image, ImageTk
 import time
+
 
 
 model_path = "../model/model_sep.h5"
@@ -277,7 +277,7 @@ def create_window():
     square_weight = 90 # 한칸당 할당된 너비
     maze = maze_make(1)
     line_coords = []
-    window = tkinter.Tk()
+    window = tk.Tk()
     window.title("k-OSMO")
     
     frame_canvas = tk.Frame(window)
