@@ -9,10 +9,19 @@ import numpy as np
 from PIL import Image, ImageTk
 import time
 
-
-
 model_path = "../model/model_sep.h5"
-model_sep = keras.models.load_model(os.path.abspath(model_path))
+if os.path.exists(model_path):
+    model_sep = keras.models.load_model(os.path.abspath(model_path))
+    print("모델이 정상적으로 로드되었습니다.")
+else:
+    error_message = (
+        f"Error: 모델 파일이 {os.path.abspath(model_path)}에 존재하지 않습니다.\n"
+        f"해당 위치의 txt 파일을 참고하여 모델을 생성해주세요."
+    )
+    
+    raise FileNotFoundError(error_message)
+
+
 
 def create_window():
 
@@ -36,9 +45,9 @@ def create_window():
         cap = cv2.VideoCapture(0)
         
         if cap.isOpened():
-            print("************************************")
+            print("**************************************")
             print("카메라에 180도 회전이 적용되어 있습니다.")
-            print("************************************")
+            print("**************************************")
             while True:
                 ret, frame = cap.read()
                 
