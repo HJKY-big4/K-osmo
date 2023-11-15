@@ -9,6 +9,7 @@ class ImageProcessor:
         gray = cv2.cvtColor(img_ori, cv2.COLOR_BGR2GRAY) ## PI1
         blurred = cv2.GaussianBlur(gray, (5, 5), 0) ## PI2
         _, binary = cv2.threshold(blurred, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU) ## PI3
+        cv2.imwrite(f"../img_data/pending_img/PI3_binary.jpg", binary) ## PI3
 
         contours, _ = cv2.findContours(binary, cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
         # 웹캠으로 사진을 찍을때 이미지가 뒤집혀 보여 이를 해결하기 위해 이미지를 반전하여 보여준다.
@@ -49,10 +50,17 @@ class ImageProcessor:
         width, height = 800, 600
         dst_points = np.float32([[0, 0], [width, 0], [0, height], [width, height]])
         perspective_matrix = cv2.getPerspectiveTransform(src_points, dst_points)
-        warped_image = cv2.warpPerspective(binary, perspective_matrix, (width, height)) ## PI5
-        # 이미지를 RGB영역으로 변환해준다.
-        warped_image_rgb = cv2.cvtColor(warped_image, cv2.COLOR_BGR2RGB)
-        
+        # gray 스케일인 이미지를 평면화
+        warped_image = cv2.warpPerspective(gray, perspective_matrix, (width, height))
+        # 평면화된 이미지에 블러처리
+        blurred = cv2.GaussianBlur(warped_image, (5, 5), 0)
+        cv2.imwrite(f"../img_data/pending_img/PI5_warped_blurred.jpg", blurred) ## PI5
+        # 이미지 이진화
+        _, binary = cv2.threshold(warped_image, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
+        cv2.imwrite(f"../img_data/pending_img/PI3.1_warped_binary.jpg", binary) ## PI3.1
+        # 이미지를 BGR에서 RGB영역으로 변경
+        warped_image_rgb = cv2.cvtColor(binary, cv2.COLOR_BGR2RGB)
+
         # 평면화된 이미지를 반환한다.
         return warped_image_rgb
 
