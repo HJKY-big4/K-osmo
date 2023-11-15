@@ -5,7 +5,7 @@
 # 이미지 전처리
 * 원본이미지
 <p align="center">
-  <img src="img_data/pending_img/PI0_original.jpg" weight = 500>
+  <img src="img_data/pending_img/PI0_original.jpg" weight = 50>
 </p>
 원본이미지를 gray 스케일로 변경한다.## PI1
 <p align="center">
