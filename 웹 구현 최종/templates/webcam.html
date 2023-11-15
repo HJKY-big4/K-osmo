@@ -1,0 +1,152 @@
+<!-- webcam.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+
+<!-- 카메라 촬영 시작, 종료 버튼 -->
+<script>
+    var video = document.querySelector('img');
+    var toggleButton = document.getElementById('toggle-button');
+    var captureButton = document.getElementById('capture-button');
+    var streaming = false;
+
+    toggleButton.onclick = function() {
+        streaming = !streaming;
+        if (streaming) {
+            video.src = "{{ video_feed_url }}";
+            toggleButton.textContent = "카메라 종료";
+        } else {
+            video.src = "{{ black_image_url }}";
+            toggleButton.textContent = "카메라 시작";
+        }
+    };
+
+    captureButton.onclick = function() {
+        if (streaming) {
+            var fileName = 'photo.jpg';
+            var canvas = document.createElement('canvas');
+            canvas.width = video.width;
+            canvas.height = video.height;
+            var ctx = canvas.getContext('2d');
+            ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+            var imageData = canvas.toDataURL('image/jpeg');
+
+            // FormData 객체를 생성하고 이미지 데이터를 추가
+            var formData = new FormData();
+            formData.append('image_data', imageData);
+
+            // 파일명도 서버로 전송
+            formData.append('file_name', fileName);
+
+            // 서버에 POST 요청 보내기
+            fetch('/capture', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                // 서버에서 받아온 예측 결과를 출력
+                const blockName = data.block_name;
+
+                // -------SweetAlert2로 경고 창 표시-------
+                Swal.fire({
+                    icon: 'info',
+                    title: '블록 이름',
+                    text: `블록: ${blockName}`,
+                    showCancelButton: true,
+                    confirmButtonText: '네',
+                    cancelButtonText: '아니오',
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // 네를 눌렀을 때의 동작
+                        const match = blockName.match(/\d+/); // 정규식을 사용하여 blockName에서 숫자 추출
+                        const distance = match ? parseInt(match[0]) : 1; // 추출한 숫자를 정수로 변환, 숫자가 없으면 기본값으로 1 사용
+
+                        if (blockName.startsWith("up")) {
+                            for (let i = 0; i < distance; i++) {
+                                if (!isValidMove(currentRow - 1, currentCol)) {
+                                    break; // 벽이나 장애물에 부딪히면 이동 중단
+                                }
+                                movePlayer(-1, 0);
+                            }
+                        } else if (blockName.startsWith("down")) {
+                            for (let i = 0; i < distance; i++) {
+                                if (!isValidMove(currentRow + 1, currentCol)) {
+                                    break; // 벽이나 장애물에 부딪히면 이동 중단
+                                }
+                                movePlayer(1, 0);
+                            }
+                        } else if (blockName.startsWith("left")) {
+                            for (let i = 0; i < distance; i++) {
+                                if (!isValidMove(currentRow, currentCol - 1)) {
+                                    break; // 벽이나 장애물에 부딪히면 이동 중단
+                                }
+                                movePlayer(0, -1);
+                            }
+                        } else if (blockName.startsWith("right")) {
+                            for (let i = 0; i < distance; i++) {
+                                if (!isValidMove(currentRow, currentCol + 1)) {
+                                    break; // 벽이나 장애물에 부딪히면 이동 중단
+                                }
+                                movePlayer(0, 1);
+                            }
+                        }
+                    }
+                     else {
+                                // 아니오를 눌렀을 때의 동작
+                                // 예: 다른 동작 수행
+                            }
+                });
+            })
+            .catch(error => {
+                console.error('오류 발생:', error);
+            });
+        } else {
+            alert("카메라를 먼저 시작해주세요.");
+        }
+    };
+    // 플레이어 이동 함수
+    function movePlayer(rowOffset, colOffset) {
+        // 새로운 위치 계산
+        var newRow = currentRow + rowOffset;
+        var newCol = currentCol + colOffset;
+
+        // 이동 가능한지 확인
+        if (isValidMove(newRow, newCol)) {
+            // 현재 위치의 엘리먼트에서 player 클래스 제거
+            document.querySelector('.maze-row:nth-child(' + (currentRow + 1) + ') .maze-cell:nth-child(' + (currentCol + 1) + ')').classList.remove('player');
+
+            // 새로운 위치의 엘리먼트에 player 클래스 추가
+            document.querySelector('.maze-row:nth-child(' + (newRow + 1) + ') .maze-cell:nth-child(' + (newCol + 1) + ')').classList.add('player');
+
+            // 현재 위치 갱신
+            currentRow = newRow;
+            currentCol = newCol;
+
+            // 도착 지점 확인
+            if (mazeData[currentRow][currentCol] === 9) {
+                alert('도착했습니다!');
+            }
+        }
+    }
+
+    // 이동 가능한지 확인하는 함수
+    function isValidMove(row, col) {
+        return mazeData[row][col] !== 1 && mazeData[row][col] !== 5;
+    }
+</script>
+
+<!-- 촬영버튼 누르면 경고문 출력  -->
+
+
+
+
+
+
+</body>
+</html>

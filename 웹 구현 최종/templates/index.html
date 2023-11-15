@@ -1,0 +1,92 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>블록 안 제목</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='3.css') }}">
+    <!-- 부트스트랩 스타일 추가 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <!-- sweetalert2 스타일 추가 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <style>
+        body {
+            overflow-x: hidden;
+        }
+
+        .flex-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+    .left-section,
+    .right-section {
+        text-align: center;
+        flex: 1; /* 남은 공간을 모두 차지하도록 함 */
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+    </style>
+</head>
+
+<body>
+    {% include 'header/header.html' %}
+
+    <div >
+        <span style="margin-left: 200px;">↑</span> <br>
+        <span style="margin-left: 50px;"> 이용이 처음이시라면 Tutorial 버튼을 눌러주세요 </span>
+    </div>
+
+    <br><br>
+    <div class="flex-container" style="width: 100%;">
+        <!-- Left Section (Maze) -->
+        <div class="left-section" style="width: 50%;">
+            <h1>Maze</h1>
+            <h3>버튼을 누르면 미로가 생성되요 :)</h3>
+
+            <label for="mazeSize">미로 크기 입력:</label>
+            <input type="number" id="mazeSize" name="mazeSize" min="1" max="20">
+
+
+            <button type="button" class="btn btn-outline-primary" onclick="getAndDrawMaze()">미로생성</button>
+            <div id="maze-container" style="text-align: center;"></div>
+            <script src="/static/3.js"></script>
+        </div>
+
+        <!-- Right Section (Webcam Streaming) -->
+        <div class="right-section" style="width: 50%;">
+
+                <h1> 카메라 </h1>
+
+                {% if streaming %}
+                <img src="{{ url_for('video_feed') }}" style="width: 100%; height: auto;">
+
+                {% else %}
+                <img src="{{ black_image_url }}" alt="검은색 이미지" width="640px" height="480px">
+                {% endif %}
+
+            <div>
+                <button id="toggle-button" class="btn btn-outline-secondary" >카메라 {{ "종료" if streaming else "시작" }}</button>
+                <button id="capture-button" class="btn btn-outline-dark" >촬영</button>
+            </div>
+
+
+            <!-- 지금은 이렇게 하고 나중에 수정 -->
+            {% include 'webcam.html' %}
+
+        </div>
+    </div>
+
+
+
+    <!-- 필요한 스크립트 및 라이브러리 추가 -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
