@@ -20,10 +20,15 @@ class ImageProcessor:
         epsilon = 0.04 * cv2.arcLength(largest_contour, True)
         approx = cv2.approxPolyDP(largest_contour, epsilon, True)
 
+        image_with_contours = img_ori.copy()
+
         edge_point = []
         for point in approx:
             x, y = point[0]
-            edge_point.append((x, y)) ## PI4
+            edge_point.append((x, y)) 
+            cv2.circle(image_with_contours, (x, y), 20, (0, 0, 255), -1)
+            cv2.putText(image_with_contours, f'({x}, {y})', (x - 50, y - 20), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
+        cv2.imwrite(f"../img_data/pending_img/PI4_point.jpg", image_with_contours) ## PI4
 
         left_top_screen = (float('inf'), float('inf'))
         right_top_screen = (float('-inf'), float('inf'))

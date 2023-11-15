@@ -30,7 +30,6 @@ def create_window():
         messagebox.showwarning("경고", "이동할 수 없습니다.")
 
     block_label = None
-    # x, y = 1, 1  # x와 y를 전역 변수로 초기화
 
     def block_move():
         global block_label
@@ -56,7 +55,7 @@ def create_window():
                             break
                         elif key == 32: # spacebar
                             
-                            cv2.imwrite('../img_data/pending_img/original_img.jpg', flipped_frame)
+                            cv2.imwrite('../img_data/pending_img/PI0_original_img.jpg', flipped_frame) ## PI0
                             print("촬영을 완료했습니다.")
 
                             # 촬영된 이미지를 전처리
@@ -66,8 +65,8 @@ def create_window():
                             # 이미지에서 숫자 영역과 방향 영역을 따로 구분함
                             processed_dir = ImageProcessor().img_crop_processed(processed_img, 154, 170, 340, 250)
                             processed_num = ImageProcessor().img_crop_processed(processed_img, 500, 170, 175, 250)
-                            cv2.imwrite('../img_data/pending_img/direction_img.jpg', processed_dir) ## PI6
-                            cv2.imwrite('../img_data/pending_img/number_img.jpg', processed_num) ## PI7
+                            cv2.imwrite('../img_data/pending_img/PI6_dir.jpg', processed_dir) ## PI6
+                            cv2.imwrite('../img_data/pending_img/PI7_num.jpg', processed_num) ## PI7
                             print("이미지 분리 완료")
 
                             predictions_dir, pre_value_dir = img_prediction(processed_dir) 
@@ -111,9 +110,8 @@ def create_window():
                                     key_overlay = cv2.waitKey(0)
 
                             else:
-                                
-                                player_move()
-                        
+                                # 인식결과가 높다면 곧바로 이동
+                                player_move()    
                                 
                 else:
                     print('프레임이 없습니다')
@@ -124,7 +122,6 @@ def create_window():
         cap.release()
         cv2.destroyAllWindows()
         
-
         return block_label
 
 
@@ -178,7 +175,6 @@ def create_window():
                     canvas.create_rectangle((mx-i) * square_weight + 1, my * square_weight +1, (mx-i) * square_weight + square_weight -1, my * square_weight + square_weight-1, fill="pink", width=0, tag="PAINT")
                     canvas.move(player, -1 * square_weight, 0)
                     time.sleep(0.5)
-
                 mx -= 1*num
 
         if dir == "right":
@@ -314,9 +310,5 @@ def create_window():
 
 
 if __name__ == "__main__":
-    # # Start the camera thread
-    # camera_thread = threading.Thread(target=block_move)
-    # camera_thread.start()
 
-    # # Start the maze window in the main thread
     create_window()
