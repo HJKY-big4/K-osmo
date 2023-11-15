@@ -6,7 +6,7 @@
 <p align="center">
   <img src="img_data/pending_img/전처리 전체.png" weight = "500">
 </p>
-## 이미지에 대한 자세한 설명
+이미지에 대한 자세한 설명
  - 원본이미지를 gray 스케일로 변경한다.## PI1
 
  - 이미지에 블러효과를 주어 잡티를 제거한다. ## PI2
