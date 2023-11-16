@@ -57,9 +57,8 @@
   * pycharm 2022.2 community version 이상 <br>
   * windows 10 이상 <br>
 
-  <h4> installation </h4>
-  ```python
-  ```
+  <h4> installation </h4> <br>
+  <code>git clone https://github.com/HJKY-big4/K-osmo.git</code>
 </div>
 
 <div>
