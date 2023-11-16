@@ -24,7 +24,7 @@
 <h3 align="center"> 웹 구현 파트 </h3>
 <br>
 <div>
-  <p align="center"> 주의사항! </p>
+  <p align="center"> 준비사항! </p>
   <br>
   <p align="center"> 실행시 model_sep.h5 파일의 용량 문제로 아래의 링크에서 다운 받은 후 사용하셔야 합니다! </p>
   <br>
@@ -37,7 +37,14 @@
   <h4 align="center"> 1. 리포지토리의 code -> download.zip을 눌러 파일을 다운 받는다! </h4>
   <h4 align="center"> 2. "웹 최종 구현" 폴더 안에 있는 "model" 폴더에 링크에서 다운받은 "model_sep.h5"파일을 옮긴다. </h4>
   <br>
+
+  <div align="center"> 
+    <h3> 컴퓨터에 연결할 웹캠 </h3>
+    <img src="웹 구현 최종/이미지파일/camera.jpg" width="50%" heigt="50%" alt="필요한_카메라">
+  </div>
+
+  
 </div>
 
-
+<h3 align="center">  </h3>
 
