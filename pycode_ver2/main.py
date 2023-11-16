@@ -43,6 +43,9 @@ def create_window():
     def block_move():
         global block_label
         cap = cv2.VideoCapture(0)
+        # 어떤 카메라가 인식되더라도 1280*720 사이즈로 설정
+        cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1280)
+        cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 720)
         
         if cap.isOpened():
             print("**************************************")
