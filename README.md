@@ -35,6 +35,12 @@
 
   <h4 align="center"> ❗️ 프로그램 실행을 위한 준비!  </h4>
   <h4 align="center"> 1. 리포지토리의 code -> download.zip을 눌러 파일을 다운 받는다! </h4>
+
+
+
+
+
+  
   
   <h4 align="center"> 2. "웹 최종 구현" 폴더 안에 있는 "model" 폴더에 링크에서 다운받은 "model_sep.h5"파일을 옮긴다. </h4>
   <br>
