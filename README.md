@@ -81,19 +81,45 @@
 
   <div align="center"> 
     <h3> 컴퓨터에 연결할 웹캠 </h3>
-    <img src="웹 구현 최종/이미지파일/camera.jpg" width="50%" heigt="50%" alt="필요한_카메라">
+    <img src="웹 구현 최종/이미지파일/camera.jpg" width="30%" heigt="30%" alt="필요한_카메라">
   </div>
 
   
 </div>
 
-<div>
-  <h3> Stacks </h3>
+<div align="center">
+  <h2> Stacks </h2>
   <div>
     <img src="https://img.shields.io/badge/Python-3776AB?style=flat&logo=Python&logoColor=white"/>
     
 
   </div>
+</div>
+
+<div align="center">
+  <h2> 화면구성 </h2>
+  <table border="1">
+    <tr>
+      <td>
+        <strong>첫 번째 칸</strong><br>
+        이 칸은 첫 번째 설명란입니다.
+      </td>
+      <td>
+        <strong>두 번째 칸</strong><br>
+        이 칸은 두 번째 설명란입니다.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <strong>세 번째 칸</strong><br>
+        이 칸은 세 번째 설명란입니다.
+      </td>
+      <td>
+        <strong>네 번째 칸</strong><br>
+        이 칸은 네 번째 설명란입니다.
+      </td>
+    </tr>
+  </table>
 </div>
 
 
