@@ -49,6 +49,21 @@
 <br><br><br><br>
 <h3 align="center"> 웹 구현 파트 </h3>
 <br>
+
+<div align="center">
+  <h3> 시작 가이드 </h3>
+  <br>
+  * python 3.9 이상 <br>
+  * pycharm 2022.2 community version 이상 <br>
+  * windows 10 이상 <br>
+
+  <h4> installation </h4>
+  ```python
+  
+
+  ```
+</div>
+
 <div>
   <p align="center"> 준비사항! </p>
   <br>
