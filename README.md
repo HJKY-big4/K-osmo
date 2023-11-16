@@ -59,8 +59,6 @@
 
   <h4> installation </h4>
   ```python
-  
-
   ```
 </div>
 
