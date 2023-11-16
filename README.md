@@ -66,7 +66,7 @@
   <br>
   
   <h4> installation </h4> 
-  <p> 터미널에서 실행 🔽 </p>
+  <h5> 터미널에서 실행 🔽 </h5>
   <code>git clone https://github.com/HJKY-big4/K-osmo.git</code>
 </div>
 
@@ -86,6 +86,16 @@
 
   
 </div>
+
+<div>
+  <h3> Stacks </h3>
+  <div>
+    <img src="https://img.shields.io/badge/Python-3776AB?style=flat&logo=Python&logoColor=white"/>
+    
+
+  </div>
+</div>
+
 
 <h3 align="center"> 첫 시행화면 </h3>
 
