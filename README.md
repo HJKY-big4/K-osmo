@@ -122,6 +122,6 @@
 
 <div>
   <h3> Prezi로 최종 발표 </h3>
-  <a href="https://prezi.com/view/qUNAH6YLxnHAxNKfAUKP/"> 프레지 확인하기 </a> <br>
-  <a href="https://youtu.be/IRs1-0oI75o"> 시연영상 확인하기(YouTube) </a>
+  <a style="color: inherit; text-decoration: none;" href="https://prezi.com/view/qUNAH6YLxnHAxNKfAUKP/"> 프레지 확인하기 </a> <br>
+  <a style="color: inherit; text-decoration: none;" href="https://youtu.be/IRs1-0oI75o"> 시연영상 확인하기(YouTube) </a>
 </div>
