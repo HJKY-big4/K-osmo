@@ -124,7 +124,7 @@
 
 <div>
   <h3> Prezi로 최종 발표 </h3>
-  [프레지 확인하기](https://prezi.com/view/qUNAH6YLxnHAxNKfAUKP/)<!-- .card -->
+  <a href="https://prezi.com/view/qUNAH6YLxnHAxNKfAUKP/">발표내용 확인하기(Prezi)</a>
 
   <br>
   <a style="color: inherit; text-decoration: none;" href="https://youtu.be/IRs1-0oI75o"> 시연영상 확인하기(YouTube) </a>
