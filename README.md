@@ -12,7 +12,7 @@
   <p> 팀원 소개 </p>
   <table border="1">
     <tr>
-      <td>현동호: </td>
+      <td>현동호: https://github.com/donghohyun</td>
       <td>전혁선: </td>
     </tr>
     <tr>
