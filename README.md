@@ -1,7 +1,7 @@
 <h3 align="center"> HJKY-big4 프로젝트 K-OSMO </h3>
 <h4 align="center"> 파이썬을 이용한 코딩 교구 제작 </h4>
 <br><br>
-[표시할 내용](https://www.youtube.com/watch?v=4Hi22jvB7X0)
+
 > 천재교육 빅데이터 개발자 양성과정 4기 <br>
 > 개발기간: 2023.10.30 ~ 2023.11.17 (3주)
 
