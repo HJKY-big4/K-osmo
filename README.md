@@ -120,5 +120,8 @@
 
 <h3 align="center"> 첫 시행화면 </h3>
 
-
-
+<div>
+  <h3> Prezi로 최종 발표 </h3>
+  <a href="https://prezi.com/view/qUNAH6YLxnHAxNKfAUKP/"> 프레지 확인하기 </a>
+  <a href="https://youtu.be/IRs1-0oI75o"> 시연영상 확인하기(YouTube) </a>
+</div>
