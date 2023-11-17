@@ -12,7 +12,8 @@
   <p> 팀원 소개 </p>
   <table border="1">
     <tr>
-      <td>현동호: https://github.com/donghohyun</td>
+      <td>현동호: <a href="https://github.com/donghohyun"깃허브 연결하기</a>
+        </td>
       <td>전혁선: </td>
     </tr>
     <tr>
