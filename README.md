@@ -65,7 +65,9 @@
 </p>
 
 * 캐릭터를 활용한 이미지 제작(오류발생 시 사용)
-* 
+<p align="center">
+  <img src="https://github.com/HJKY-big4/K-osmo/assets/139213175/4c62de61-dda6-4c26-a57a-145d594bb539" weight = "500">
+</p>
 
 ---
 <br><br><br><br>
