@@ -58,6 +58,14 @@
 ---
 ## UI 디자인
 아이들이 흥미를 느끼고 게임에 집중할 수 있도록 캐릭터와 같은 이미지를 활용하여 게임을 진행하고, 이미지를 활용한 오류메세지를 통해 시각적인 재미와 한눈에 오류를 알아볼 수 있도록 하였다.
+* AI(미드저니)를 이용한 캐릭터 생성
+  생성된 이미지에서 활용도를 높이기 위해 배경제거 및 색상을 변경하여 사용하였다.
+<p align="center">
+  <img src="https://github.com/HJKY-big4/K-osmo/assets/139213175/41dc2a20-cafb-43ff-9e9c-c3afb9220820" weight = "500">
+</p>
+
+* 캐릭터를 활용한 이미지 제작(오류발생 시 사용)
+* 
 
 ---
 <br><br><br><br>
@@ -73,7 +81,7 @@
 
   <p> 준비사항! </p>
   <br>
-  <p> 실행시 model_sep.h5 파일의 용량 문제로 아래의 링크🔽에서 다운 받은 후 사용하셔야 합니다! </p>
+  <p> 실행시 model_sep.h5 파일의 용량 문제로 아래의 링크🔽에서 다운 받은 후 사용하거나 모델부분의 주피터 파일을 이용하여 모델을 생성하셔야 합니다. </p>
   <div>
     <a href="https://drive.google.com/file/d/1TLBhdzT16R-N0e9M8J_2Npd6r9jqZqGj/view?usp=drive_link"> 모델 download in 구글 드라이브 </a>
   </div>
